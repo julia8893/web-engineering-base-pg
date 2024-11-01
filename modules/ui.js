@@ -1,26 +1,29 @@
+import "../components/bear-card.js";
+
 const toggleComments = (showHideBtn, commentWrapper) => {
-  showHideBtn.onclick = () => {
-    var showHideText = showHideBtn.textContent;
-    if (showHideText == "Show comments") {
-      showHideBtn.textContent = "Hide comments";
-      commentWrapper.style.display = "block";
-    } else {
-      showHideBtn.textContent = "Show comments";
-      commentWrapper.style.display = "none";
-    }
-  };
+  showHideBtn.addEventListener("click", () => {
+    const isShowing = showHideBtn.textContent === "Hide comments";
+    showHideBtn.textContent = isShowing ? "Show comments" : "Hide comments";
+    commentWrapper.style.display = isShowing ? "none" : "block";
+  });
 };
 
 const renderBearImages = (bears) => {
-  var moreBearsSection = document.querySelector(".more_bears");
-  bears.forEach((bear) => {
-    moreBearsSection.innerHTML += `
-                    <div>
-                        <h3>${bear.name} (${bear.binomial})</h3>
-                        <img src="${bear.image}" alt="${bear.name}" style="width:200px; height:auto;">
-                        <p><strong>Range:</strong> ${bear.range}</p>
-                    </div>
-                `;
+  if (!Array.isArray(bears) || bears.length === 0) {
+    console.warn("No bear data available to render.");
+    return;
+  }
+
+  const moreBearsSection = document.querySelector(".more_bears");
+  moreBearsSection.innerHTML = "";
+
+  bears.forEach(({ name, binomial, image, range }) => {
+    const bearCard = document.createElement("bear-card");
+    bearCard.setAttribute("name", name);
+    bearCard.setAttribute("binomial", binomial);
+    bearCard.setAttribute("image", image);
+    bearCard.setAttribute("range", range);
+    moreBearsSection.appendChild(bearCard);
   });
 };
 

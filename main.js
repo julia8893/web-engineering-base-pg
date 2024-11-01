@@ -1,29 +1,49 @@
-import { toggleComments } from "./modules/ui.js";
+import { toggleComments, renderBearImages } from "./modules/ui.js";
 import { initComment } from "./modules/comments.js";
 import { getBearData } from "./modules/bears.js";
 
-// functionality for showing/hiding the comments section
+const initializeComments = () => {
+  const showHideBtn = document.querySelector(".show-hide");
+  const commentWrapper = document.querySelector(".comment-wrapper");
 
-var showHideBtn = document.querySelector(".show-hide");
-var commentWrapper = document.querySelector(".comment-wrapper");
-
-commentWrapper.style.display = "none";
-
-toggleComments(showHideBtn, commentWrapper);
-
-// functionality for adding a new comment via the comments form
-
-var form = document.querySelector(".comment-form");
-var nameField = document.querySelector("#name");
-var commentField = document.querySelector("#comment");
-var list = document.querySelector(".comment-container");
-
-initComment(form, nameField, commentField, list);
-
-const fetchAndDisplayBears = async () => {
-  const bears = await getBearData();
-  // Only update the UI after all bears are processed
-  renderBearImages(bears);
+  if (showHideBtn && commentWrapper) {
+    commentWrapper.style.display = "none";
+    toggleComments(showHideBtn, commentWrapper);
+  } else {
+    console.warn("Comment toggle elements not found.");
+  }
 };
 
-fetchAndDisplayBears();
+const initializeCommentForm = () => {
+  const form = document.querySelector(".comment-form");
+  const nameField = document.querySelector("#name");
+  const commentField = document.querySelector("#comment");
+  const list = document.querySelector(".comment-container");
+
+  if (form && nameField && commentField && list) {
+    initComment(form, nameField, commentField, list);
+  } else {
+    console.warn("Comment form elements not found.");
+  }
+};
+
+const fetchAndDisplayBears = async () => {
+  try {
+    const bears = await getBearData();
+    if (bears) {
+      renderBearImages(bears);
+    } else {
+      console.warn("No bear data available to display.");
+    }
+  } catch (err) {
+    console.error("Error fetching bear data:", err);
+  }
+};
+
+const initializeWebApp = () => {
+  initializeComments();
+  initializeCommentForm();
+  fetchAndDisplayBears();
+};
+
+initializeWebApp();
