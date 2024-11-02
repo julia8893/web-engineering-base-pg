@@ -314,6 +314,34 @@ Apply the following ruleset for Prettier:
 
 Present your findings here...
 
+**1. Static Typing**
+
+TypeScript allows to define types for variables, function parameters, and return values.
+
+\+ Catches type mismatches at compile time, reducing runtime errors and improving code reliability.
+
+**2. Improved Code Readability and Maintainability**
+
+Type annotations make code more expressive and self-documenting.
+
+\+ Helps understand existing code more easily, especially in larger codebases.
+
+**3. Advanced Language Features**
+
+Supports interfaces, enums, and generics for robust and reusable code. This helps in maintaining a consistent structure across different parts of the application.
+
+\+ Interfaces provide better type-checking and documentation. They help in enforcing the shape of objects, making the code more predictable and easier to understand.
+
+**4. Enhanced Tooling and IDE Support**
+
+TypeScript integrates well with IDEs, offering autocompletion, type inference, and better refactoring tools.
+
+\+ Reduces cognitive load, allowing developers to write code more efficiently and with fewer errors, leading to faster development cycles.
+
+**5. Backward Compatibility**
+
+TypeScript can be gradually adopted, allowing to migrate existing JavaScript code without complete rewrites.
+
 ## 3. CI/CD Pipeline Playground (5 Pts.)
 
 Implementation of a CI/CD pipeline to automate the development and deployment process – write automated tests.
