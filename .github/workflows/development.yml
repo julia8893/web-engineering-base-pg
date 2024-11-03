@@ -1,0 +1,20 @@
+name: Development Workflow
+
+on:
+  push:
+    branches: ['development']
+  pull_request:
+    branches: ['development']
+
+jobs:
+  test-and-lint:
+    uses: ./.github/workflows/test-and-lint.yml
+    with:
+      node-version: '20'
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run build
+        run: npm run build --if-present
