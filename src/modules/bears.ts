@@ -85,7 +85,7 @@ const extractBears = async (wikitext: string): Promise<Bear[]> => {
       const nameMatch = row.match(/\|name=\[\[(.*?)\]\]/);
       const binomialMatch = row.match(/\|binomial=(.*?)\n/);
       const imageMatch = row.match(/\|image=(.*?)\n/);
-      const rangeMatch = row.match(/\|range=([^|]*)/);
+      const rangeMatch = row.match(/\|range=([^|}]*)/);
 
       if (nameMatch && binomialMatch && imageMatch) {
         const fileName = imageMatch[1].trim().replace('File:', '');
@@ -121,4 +121,4 @@ const getBearData = async (): Promise<Bear[]> => {
   }
 };
 
-export { getBearData };
+export { getBearData, fetchImageUrl, buildUrl, extractBears };
