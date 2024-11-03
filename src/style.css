@@ -8,22 +8,43 @@ body {
 
 html {
   font-size: 10px;
-  background-color: #dde;
+  background-color: #f9f3e9; /* Warm beige background */
 }
 
 body {
   width: 80%;
   min-width: 1024px;
+  font-family: 'Verdana', sans-serif; /* Changed to Verdana for better readability */
   margin: 0 auto;
 }
 
-/* || typography */
+/* || Typography */
 
-font[size='7'],
-font[size='6'],
-font[size='5'] {
-  font-family: 'Sonsie One', cursive;
-  color: #2a2a2a;
+h1,
+h2,
+h3 {
+  font-family: 'Arial', sans-serif; /* Changed to Arial for headings */
+  color: #8b5b29; /* Warm brown for headings */
+  margin: 0;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: #ffd700; /* Gold for better visibility */
+  text-shadow: 2px 2px 10px rgba(139, 91, 41, 0.5); /* Soft brown shadow for depth */
+}
+
+h2 {
+  font-size: 3rem;
+  color: #c65d24; /* Warm orange for subheadings */
+  text-align: center;
+  margin: 20px 0; /* Add spacing */
+}
+
+h3 {
+  font-size: 2.2rem;
+  color: #8b5b29; /* Consistent warm brown */
 }
 
 p,
@@ -31,24 +52,8 @@ input,
 li,
 table,
 label {
-  font-family: 'Open Sans Condensed', sans-serif;
-  color: #2a2a2a;
-}
-
-font[size='7'] {
-  font-size: 4rem;
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 10px black;
-}
-
-font[size='6'] {
-  font-size: 3rem;
-  text-align: center;
-}
-
-font[size='5'] {
-  font-size: 2.2rem;
+  font-family: 'Verdana', sans-serif; /* Ensure consistent font for body text */
+  color: #5d3a29; /* Darker brown for body text */
 }
 
 p,
@@ -58,13 +63,105 @@ table {
   line-height: 1.5;
 }
 
-/* || header layout */
+/* || Header layout */
 
-div[class='nav'],
+.header {
+  background-color: #4c3c2b; /* Darker brown background for header */
+  padding: 20px; /* Padding for breathing space */
+  text-align: center; /* Center text in the header */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.header h1 {
+  font-family: 'Arial', sans-serif; /* Maintain Arial for header */
+  font-size: 4.5rem; /* Increased size for prominence */
+  color: #ffd700; /* Gold for better visibility */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+  margin: 0; /* Remove default margin */
+}
+
+.nav {
+  height: 60px; /* Increased height for more room */
+  background-color: #d57e2a; /* Warm terracotta for navigation */
+  display: flex; /* Flex layout for better alignment */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  padding: 0 20px; /* Horizontal padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Navbar links */
+.nav ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  margin: 0; /* Remove margin for list */
+}
+
+.nav li {
+  display: inline;
+  margin: 0 20px; /* Space between items */
+}
+
+.nav a {
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff; /* White for better contrast */
+  transition:
+    color 0.3s,
+    text-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+/* Hover effect for navbar links */
+.nav a:hover {
+  color: #ffd700; /* Change color on hover */
+  text-shadow:
+    0 0 5px rgba(255, 215, 0, 0.5),
+    0 0 10px rgba(255, 215, 0, 0.3); /* Glow effect */
+}
+
+/* Search bar styling */
+.search {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: auto; /* Align search bar to the right */
+}
+
+.search input {
+  font-size: 1.6rem;
+  height: 40px; /* Increased height for better usability */
+  border-radius: 4px; /* Rounded corners for a modern look */
+}
+
+.search input[type='search'] {
+  flex: 3;
+  border: 2px solid #c65d24; /* Warm orange border */
+  padding: 0 10px; /* Padding for input */
+}
+
+.search input[type='submit'] {
+  flex: 1;
+  margin-left: 1rem;
+  background: #8b5b29; /* Warm brown for submit button */
+  border: 0;
+  color: white; /* White text on dark brown */
+  border-radius: 4px; /* Rounded corners for a modern look */
+  cursor: pointer; /* Pointer cursor for buttons */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.search input[type='submit']:hover {
+  background: #c65d24; /* Change color on hover */
+}
+
+.nav,
 article,
 footer,
 .secondary {
-  background-color: green;
+  background-color: #ffe8b0; /* Light warm yellow for navigation and sections */
 }
 
 article,
@@ -77,41 +174,47 @@ article {
   margin-right: 10px;
 }
 
-div[class='nav'] {
+/* || Navbar styling */
+
+.nav {
   height: 50px;
-  background-color: ff80ff;
+  background-color: #d57e2a; /* Warm terracotta for navigation */
   display: flex;
-  padding: 1% 0;
-  margin-bottom: 10px;
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center vertically */
+  padding: 1% 2%; /* Add padding */
 }
 
-div[class='nav'] ul {
+.nav ul {
   padding: 0;
   list-style-type: none;
-  flex: 2;
   display: flex;
+  margin: 0; /* Remove margin for list */
 }
 
-div[class='nav'] li {
+.nav li {
   display: inline;
-  text-align: center;
-  flex: 1;
+  margin: 0 15px; /* Add space between items */
 }
 
-div[class='nav'] a {
+.nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: black;
+  color: #ffffff; /* White for better contrast on dark background */
+  transition: color 0.3s; /* Smooth color transition */
 }
 
-div[class='nav'] .search {
-  flex: 1;
+.nav a:hover {
+  color: #ffd700; /* Change color on hover */
+}
+
+.search {
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 2em;
+  margin-left: auto; /* Align search bar to the right */
 }
 
 .search input {
@@ -121,17 +224,19 @@ div[class='nav'] .search {
 
 .search input[type='search'] {
   flex: 3;
+  border: 2px solid #c65d24; /* Warm orange border */
 }
 
 .search input[type='submit'] {
   flex: 1;
   margin-left: 1rem;
-  background: #333;
+  background: #8b5b29; /* Warm brown for submit button */
   border: 0;
-  color: white;
+  color: white; /* White text on dark brown */
+  cursor: pointer; /* Pointer cursor for buttons */
 }
 
-/* || main layout */
+/* || Main layout */
 
 main {
   display: flex;
@@ -153,7 +258,7 @@ footer {
 
 table {
   width: 100%;
-  background-color: #dde;
+  background-color: #ffffff; /* White for tables for contrast */
   border-collapse: collapse;
 }
 
@@ -167,14 +272,14 @@ td {
 }
 
 th[scope='col'] {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #d57e2a; /* Warm terracotta for table header */
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #def;
+  background-color: #faebd7; /* Light warm beige for odd rows */
 }
 
-/* styling content images and audio */
+/* Styling content images and audio */
 
 img,
 audio {
@@ -189,7 +294,7 @@ audio {
 /* Comments styling */
 
 .comments {
-  background-color: #def;
+  background-color: #f5e0b9; /* Soft light beige for comments section */
   padding: 10px;
 }
 
@@ -197,12 +302,8 @@ audio {
   cursor: pointer;
 }
 
-.comments font[size='6'] {
+.comments h3 {
   font-size: 2rem;
-}
-
-.comments font[size='6']:nth-of-type(2) {
-  margin-bottom: 0;
 }
 
 .comment-form {
@@ -239,7 +340,7 @@ audio {
 
 .comment-form input[type='submit'],
 .show-hide {
-  background: #333;
+  background: #c65d24; /* Warm orange for buttons */
   border: 0;
   color: white;
 }
@@ -272,3 +373,40 @@ img.bear-card {
   width: 200px;
   height: auto;
 }
+
+.transcript {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.transcript h3 {
+  font-size: 2rem;
+  color: #8b5b29;
+}
+
+.transcript p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #5d3a29;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* .show-hide {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0;
+} */

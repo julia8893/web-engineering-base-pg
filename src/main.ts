@@ -29,9 +29,12 @@ const initializeCommentForm = (): void => {
   const list = document.querySelector(
     '.comment-container'
   ) as HTMLUListElement | null;
+  const showHideButton = document.querySelector(
+    '.show-hide'
+  ) as HTMLButtonElement | null; // Selecting the show/hide button
 
-  if (form && nameField && commentField && list) {
-    initComment(form, nameField, commentField, list);
+  if (form && nameField && commentField && list && showHideButton) {
+    initComment(form, nameField, commentField, list, showHideButton);
   } else {
     console.warn('Comment form elements not found.');
   }
