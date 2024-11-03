@@ -1,0 +1,47 @@
+name: Deployment Workflow
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  test-and-lint:
+    uses: ./.github/workflows/test-and-lint.yml
+    with:
+      node-version: '20'
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run build
+        run: npm run build
+
+      - name: List files in the dist directory
+        run: ls -R dist
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
+
+  deploy:
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
