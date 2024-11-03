@@ -6,18 +6,20 @@ describe('Commments Module', () => {
   let nameField: HTMLInputElement;
   let commentField: HTMLTextAreaElement;
   let list: HTMLUListElement;
+  let showHideButton: HTMLButtonElement;
 
   beforeEach(() => {
     form = document.createElement('form');
     nameField = document.createElement('input');
     commentField = document.createElement('textarea');
     list = document.createElement('ul');
+    showHideButton = document.createElement('button');
 
     form.appendChild(nameField);
     form.appendChild(commentField);
 
     // Initialize the function with the mock elements
-    initComment(form, nameField, commentField, list);
+    initComment(form, nameField, commentField, list, showHideButton);
   });
 
   // TEST 1
